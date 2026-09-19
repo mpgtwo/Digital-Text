@@ -26,3 +26,13 @@ p {
   font-size: 1.25rem;
   margin-bottom: 28px;
 }
+
+.hover-word {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dotted currentColor;
+}
+
+.hover-word:hover {
+  background: #e8e5dc;
+}
