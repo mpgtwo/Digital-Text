@@ -29,7 +29,7 @@ p {
 
 .hover-word {
   position: relative;
-  cursor: help;
+  cursor: none;
   border-bottom: 1px dotted currentColor;
 }
 
@@ -102,4 +102,26 @@ p {
 }
 .hover-word:hover .hover-popup {
   display: block;
+}
+
+.hover-word::after {
+  content: "";
+  position: fixed;
+
+  width: 0;
+  height: 0;
+
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid #ff69b4;
+
+  pointer-events: none;
+  opacity: 0;
+
+  transform: translate(8px, 8px);
+  z-index: 1000;
+}
+
+.hover-word:hover::after {
+  opacity: 1;
 }
