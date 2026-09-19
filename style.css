@@ -61,7 +61,7 @@ p {
 
 .hover-word {
   position: relative;
-  cursor: help;
+  cursor: none;
   border-bottom: 1px dotted currentColor;
 }
 
