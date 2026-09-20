@@ -72,6 +72,9 @@ function updateBackground() {
       if (background === "red") {
         currentBackground = "#f73718";
       }
+      if (background === "cream") {
+  currentBackground = "#f8f7f3";
+}
     }
   });
 
