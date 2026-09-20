@@ -8,29 +8,20 @@ body {
   color: #222;
 
   line-height: 1.7;
+
+  transition: background-color 1.2s ease;
 }
 
 main {
-  max-width: 750px;
-  margin: 80px auto;
-  padding: 0 30px;
+  width: 100%;
 }
 
-.page-section {
-  min-height: 100vh;
-
-  box-sizing: border-box;
-
-  padding: 80px 30px;
-
-  transition: background-color 0.8s ease;
-}
-
-
-.page-section > * {
+.reading-content {
   max-width: 750px;
-  margin-left: auto;
-  margin-right: auto;
+
+  margin: 0 auto;
+
+  padding: 100px 30px;
 }
 
 h1 {
@@ -49,6 +40,16 @@ p {
   font-size: 1.25rem;
   margin-bottom: 28px;
 }
+
+
+.background-marker {
+  height: 1px;
+
+  width: 100%;
+
+  pointer-events: none;
+}
+
 
 .hover-word {
   position: relative;
@@ -151,18 +152,4 @@ p {
 
 .hover-word:hover::after {
   opacity: 1;
-}
-
-.section-one {
-  background: #f8f7f3;
-}
-
-
-.section-two {
-  background: #fce4ec;
-}
-
-
-.section-three {
-  background: #e5f1f8;
 }
