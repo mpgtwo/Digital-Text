@@ -71,11 +71,11 @@ const backgroundObserver = new IntersectionObserver(
         const background = entry.target.dataset.background;
 
         if (background === "red") {
-          document.body.style.backgroundColor = "#F73718;
+          document.body.style.backgroundColor = "#f73718;
         }
 
         if (background === "gray") {
-          document.body.style.backgroundColor = "#B2BEB5";
+          document.body.style.backgroundColor = "#b2beb5";
         }
 
       }
