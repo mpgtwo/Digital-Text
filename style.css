@@ -29,7 +29,7 @@ p {
 
 .hover-word {
   position: relative;
-  cursor: pointer;
+  cursor: none;
   border-bottom: 1px dotted currentColor;
 }
 
@@ -61,7 +61,7 @@ p {
 
 .hover-word {
   position: relative;
-  cursor: pointer;
+  cursor: none;
   border-bottom: 1px dotted currentColor;
 }
 
