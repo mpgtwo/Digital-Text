@@ -56,16 +56,13 @@ sections.forEach((section) => {
 const markers = document.querySelectorAll(".background-marker");
 
 function updateBackground() {
-
   let currentBackground = "#f8f7f3";
 
   markers.forEach((marker) => {
-
     const markerPosition = marker.getBoundingClientRect().top;
     const triggerPosition = window.innerHeight * 0.5;
 
     if (markerPosition <= triggerPosition) {
-
       const background = marker.dataset.background;
 
       if (background === "gray") {
@@ -75,9 +72,7 @@ function updateBackground() {
       if (background === "red") {
         currentBackground = "#f73718";
       }
-
     }
-
   });
 
   document.body.style.backgroundColor = currentBackground;
