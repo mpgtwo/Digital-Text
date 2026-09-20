@@ -3,13 +3,10 @@ const hoverWords = document.querySelectorAll(".hover-word");
 
 hoverWords.forEach(word => {
 
-  // If a popup already exists inside the word,
-  // leave it alone.
   if (word.querySelector(".hover-popup")) {
     return;
   }
 
-  // Otherwise, create a popup from data-info.
   if (word.dataset.info) {
     const popup = document.createElement("span");
 
@@ -51,8 +48,6 @@ const sectionObserver = new IntersectionObserver(
 );
 
 
-// Start watching each section
-
 sections.forEach((section) => {
   sectionObserver.observe(section);
 });
@@ -71,7 +66,7 @@ const backgroundObserver = new IntersectionObserver(
         const background = entry.target.dataset.background;
 
         if (background === "red") {
-          document.body.style.backgroundColor = "#f73718;
+          document.body.style.backgroundColor = "#f73718";
         }
 
         if (background === "gray") {
