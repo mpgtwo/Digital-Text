@@ -80,13 +80,10 @@ const backgroundObserver = new IntersectionObserver(
   },
 
   {
-    rootMargin: "-45% 0px -45% 0px",
     threshold: 0
   }
 
 );
-
-
 
 markers.forEach((marker) => {
   backgroundObserver.observe(marker);
