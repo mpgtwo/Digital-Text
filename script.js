@@ -55,36 +55,34 @@ sections.forEach((section) => {
 
 const markers = document.querySelectorAll(".background-marker");
 
-const backgroundObserver = new IntersectionObserver(
+function updateBackground() {
 
-  (entries) => {
+  let currentBackground = "#f8f7f3";
 
-    entries.forEach((entry) => {
+  markers.forEach((marker) => {
 
-      if (entry.isIntersecting) {
+    const markerPosition = marker.getBoundingClientRect().top;
+    const triggerPosition = window.innerHeight * 0.5;
 
-        const background = entry.target.dataset.background;
+    if (markerPosition <= triggerPosition) {
 
-        if (background === "red") {
-          document.body.style.backgroundColor = "#f73718";
-        }
+      const background = marker.dataset.background;
 
-        if (background === "gray") {
-          document.body.style.backgroundColor = "#b2beb5";
-        }
-
+      if (background === "gray") {
+        currentBackground = "#b2beb5";
       }
 
-    });
+      if (background === "red") {
+        currentBackground = "#f73718";
+      }
 
-  },
+    }
 
-  {
-    threshold: 0
-  }
+  });
 
-);
+  document.body.style.backgroundColor = currentBackground;
+}
 
-markers.forEach((marker) => {
-  backgroundObserver.observe(marker);
-});
+window.addEventListener("scroll", updateBackground);
+
+updateBackground();
