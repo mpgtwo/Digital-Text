@@ -1,19 +1,37 @@
+// -----------------------------
+// HOVER WORDS / POPUPS
+// -----------------------------
+
 const hoverWords = document.querySelectorAll(".hover-word");
 
 hoverWords.forEach(word => {
-  const popup = document.createElement("span");
 
-  popup.className = "hover-popup";
-  popup.textContent = word.dataset.info;
+  // If a popup already exists inside the word,
+  // leave it alone.
+  if (word.querySelector(".hover-popup")) {
+    return;
+  }
 
-  word.appendChild(popup);
+  // Otherwise, create a popup from data-info.
+  if (word.dataset.info) {
+    const popup = document.createElement("span");
+
+    popup.className = "hover-popup";
+    popup.textContent = word.dataset.info;
+
+    word.appendChild(popup);
+  }
+
 });
 
 
+// -----------------------------
+// SECTION BACKGROUND CHANGES
+// -----------------------------
+
 const sections = document.querySelectorAll(".page-section");
 
-
-const observer = new IntersectionObserver(
+const sectionObserver = new IntersectionObserver(
 
   (entries) => {
 
@@ -43,9 +61,50 @@ const observer = new IntersectionObserver(
 // Start watching each section
 
 sections.forEach((section) => {
-  observer.observe(section);
+  sectionObserver.observe(section);
 });
 
-  observer.observe(marker);
 
+// -----------------------------
+// SCROLL-BASED BACKGROUND COLORS
+// -----------------------------
+
+const markers = document.querySelectorAll(".background-marker");
+
+const backgroundObserver = new IntersectionObserver(
+
+  (entries) => {
+
+    entries.forEach((entry) => {
+
+      if (entry.isIntersecting) {
+
+        const background = entry.target.dataset.background;
+
+        if (background === "pink") {
+          document.body.style.backgroundColor = "#fce4ec";
+        }
+
+        if (background === "blue") {
+          document.body.style.backgroundColor = "#e5f1f8";
+        }
+
+      }
+
+    });
+
+  },
+
+  {
+    rootMargin: "-45% 0px -45% 0px",
+    threshold: 0
+  }
+
+);
+
+
+// Start watching the background markers
+
+markers.forEach((marker) => {
+  backgroundObserver.observe(marker);
 });
