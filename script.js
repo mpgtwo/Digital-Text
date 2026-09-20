@@ -1,9 +1,17 @@
-// Find all background markers
+const hoverWords = document.querySelectorAll(".hover-word");
 
-const markers = document.querySelectorAll(".background-marker");
+hoverWords.forEach(word => {
+  const popup = document.createElement("span");
+
+  popup.className = "hover-popup";
+  popup.textContent = word.dataset.info;
+
+  word.appendChild(popup);
+});
 
 
-// Watch for markers entering the reading area
+const sections = document.querySelectorAll(".page-section");
+
 
 const observer = new IntersectionObserver(
 
@@ -13,21 +21,11 @@ const observer = new IntersectionObserver(
 
       if (entry.isIntersecting) {
 
-        const background = entry.target.dataset.background;
+        sections.forEach((section) => {
+          section.classList.remove("active");
+        });
 
-
-        if (background === "pink") {
-
-          document.body.style.backgroundColor = "#fce4ec";
-
-        }
-
-
-        if (background === "blue") {
-
-          document.body.style.backgroundColor = "#e5f1f8";
-
-        }
+        entry.target.classList.add("active");
 
       }
 
@@ -35,24 +33,18 @@ const observer = new IntersectionObserver(
 
   },
 
-
   {
-    /*
-      The marker triggers when it reaches
-      approximately the middle of the screen.
-    */
-
-    rootMargin: "-45% 0px -45% 0px",
-
-    threshold: 0
+    threshold: 0.5
   }
 
 );
 
 
-// Start watching all markers
+// Start watching each section
 
-markers.forEach((marker) => {
+sections.forEach((section) => {
+  observer.observe(section);
+});
 
   observer.observe(marker);
 
