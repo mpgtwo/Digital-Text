@@ -1,6 +1,3 @@
-// -----------------------------
-// HOVER WORDS / POPUPS
-// -----------------------------
 
 const hoverWords = document.querySelectorAll(".hover-word");
 
@@ -24,10 +21,6 @@ hoverWords.forEach(word => {
 
 });
 
-
-// -----------------------------
-// SECTION BACKGROUND CHANGES
-// -----------------------------
 
 const sections = document.querySelectorAll(".page-section");
 
@@ -65,10 +58,6 @@ sections.forEach((section) => {
 });
 
 
-// -----------------------------
-// SCROLL-BASED BACKGROUND COLORS
-// -----------------------------
-
 const markers = document.querySelectorAll(".background-marker");
 
 const backgroundObserver = new IntersectionObserver(
@@ -81,12 +70,12 @@ const backgroundObserver = new IntersectionObserver(
 
         const background = entry.target.dataset.background;
 
-        if (background === "pink") {
-          document.body.style.backgroundColor = "#fce4ec";
+        if (background === "red") {
+          document.body.style.backgroundColor = "#F73718;
         }
 
-        if (background === "blue") {
-          document.body.style.backgroundColor = "#e5f1f8";
+        if (background === "gray") {
+          document.body.style.backgroundColor = "#B2BEB5";
         }
 
       }
@@ -103,7 +92,6 @@ const backgroundObserver = new IntersectionObserver(
 );
 
 
-// Start watching the background markers
 
 markers.forEach((marker) => {
   backgroundObserver.observe(marker);
